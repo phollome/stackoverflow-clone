@@ -24,7 +24,7 @@ function AnswerForm(props) {
       <button
         type="submit"
         data-testid="answer-submit-button"
-        className="py-2 px-4 border-2 rounded-lg bg-gray-500 text-white"
+        className="py-1 px-4 border-2 rounded-lg bg-gray-500 text-white text-sm"
         onClick={handleSubmit}
       >
         Submit
