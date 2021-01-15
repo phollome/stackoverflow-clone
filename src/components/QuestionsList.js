@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
+import AnswerForm from "./AnswerForm";
 
 function QuestionsList(props) {
-  const { list, answers } = props;
+  const { list, answers, submitAnswer } = props;
 
   const enhancedList = list.map((item) => {
     const itemAnswers = answers.filter((elem) => elem.questionId === item.id);
@@ -28,6 +29,7 @@ function QuestionsList(props) {
                 </p>
               </div>
             ))}
+            <AnswerForm questionId={item.id} submit={submitAnswer} />
           </div>
         </div>
       ))}
@@ -38,11 +40,13 @@ function QuestionsList(props) {
 QuestionsList.propTypes = {
   list: PropTypes.array.isRequired,
   answers: PropTypes.array.isRequired,
+  submitAnswer: PropTypes.func.isRequired,
 };
 
 QuestionsList.defaultProps = {
   list: [],
   answers: [],
+  submitAnswer: (item) => console.log(item),
 };
 
 export default QuestionsList;
