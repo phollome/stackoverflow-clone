@@ -16,36 +16,37 @@ function QuestionForm(props) {
   };
 
   return (
-    <div data-testid="question-form" className="w-full p-2">
+    <div data-testid="question-form" className="w-3/4 p-2">
       <div className="border p-2">
-        <div>
-          <label htmlFor="title-input">Title: </label>
-          <input
-            id="title-input"
-            data-testid="title-input"
-            ref={titleInput}
-            className="border"
-          />
+        <h2 className="py-2 text-lg font-bold">Ask question</h2>
+        <input
+          id="title-input"
+          data-testid="title-input"
+          aria-label="title of question"
+          ref={titleInput}
+          className="mb-2 w-full border p-2"
+          placeholder="Title"
+        />
+        <textarea
+          id="description-input"
+          data-testid="description-input"
+          aria-label="description of question"
+          ref={descriptionInput}
+          rows="4"
+          cols="50"
+          className="w-full border p-2 resize-y"
+          placeholder="Description"
+        />
+        <div className="flex justify-end">
+          <button
+            data-testid="submit-button"
+            type="submit"
+            onClick={handleSubmit}
+            className="py-2 px-4 border-2 rounded-lg bg-blue-500 text-white"
+          >
+            Submit
+          </button>
         </div>
-        <div>
-          <label htmlFor="description-input">Description: </label>
-          <textarea
-            id="description-input"
-            data-testid="description-input"
-            ref={descriptionInput}
-            className="border"
-            rows="4"
-            cols="50"
-          />
-        </div>
-        <button
-          data-testid="submit-button"
-          type="submit"
-          onClick={handleSubmit}
-          className="py-2 px-4 border-2 rounded-lg bg-blue-500 text-white"
-        >
-          Submit
-        </button>
       </div>
     </div>
   );
