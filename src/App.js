@@ -2,6 +2,17 @@ import { useEffect, useState } from "react";
 import QuestionForm from "./components/QuestionForm";
 import QuestionsList from "./components/QuestionsList";
 
+async function sendData(url, data) {
+  const options = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  return await fetch(url, options);
+}
+
 function App() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
@@ -24,16 +35,29 @@ function App() {
     makeRequest();
   }, []);
 
-  const onSubmit = (item) => {
+  const onSubmit = async (item) => {
     const {
       author: { name: author },
       ...rest
     } = item;
     const id = questions.length + 1;
-    setQuestions([...questions, { id, author, ...rest }]);
+    const data = { id, author, ...rest };
+    // TODO: handle errors
+    await sendData("http://localhost:3001/questions", data);
+    setQuestions([...questions, data]);
   };
 
-  console.log(questions);
+  const onSubmitAnswer = async (item) => {
+    const {
+      author: { name: author },
+      ...rest
+    } = item;
+    const id = answers.length + 1;
+    const data = { id, author, ...rest };
+    // TODO: handle errors
+    await sendData("http://localhost:3001/answers", data);
+    setAnswers([...answers, data]);
+  };
 
   return (
     <div className="App">
@@ -42,7 +66,11 @@ function App() {
       </header>
       <main>
         <QuestionForm submit={onSubmit} />
-        <QuestionsList list={questions} answers={answers} />
+        <QuestionsList
+          list={questions}
+          answers={answers}
+          submitAnswer={onSubmitAnswer}
+        />
       </main>
     </div>
   );
