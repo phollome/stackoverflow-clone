@@ -4,10 +4,12 @@ import AnswerForm from "./AnswerForm";
 function QuestionsList(props) {
   const { list, answers, submitAnswer } = props;
 
-  const enhancedList = list.map((item) => {
-    const itemAnswers = answers.filter((elem) => elem.questionId === item.id);
-    return { ...item, answers: itemAnswers };
-  });
+  const enhancedList = list
+    .map((item) => {
+      const itemAnswers = answers.filter((elem) => elem.questionId === item.id);
+      return { ...item, answers: itemAnswers };
+    })
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // sort descendant
 
   return (
     <div className="p-2 w-3/4">
