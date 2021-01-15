@@ -1,5 +1,11 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "questions": [
+    {
+      "id": 1,
+      "title": "The Question!",
+      "description": "The answer to the ultimate question of life, the universe and everything",
+      "createdAt": "Fri Jan 15 2021 10:12:19 GMT+0100",
+      "author": "peter"
+    }
+  ]
 }

@@ -1,22 +1,26 @@
-import logo from "./logo.svg";
+import { useEffect, useState } from "react";
+import QuestionsList from "./components/QuestionsList";
 
 function App() {
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    async function makeRequest() {
+      const res = await fetch("http://localhost:3001/questions");
+      const json = await res.json();
+      setQuestions(json);
+    }
+    makeRequest();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="text-center">
+        <h1 className="text-2xl">Stackoverflow clone</h1>
       </header>
+      <main>
+        <QuestionsList list={questions} />
+      </main>
     </div>
   );
 }
