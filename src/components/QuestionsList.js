@@ -10,29 +10,31 @@ function QuestionsList(props) {
   });
 
   return (
-    <div className="m-2">
-      {enhancedList.map((item) => (
-        <div key={item.id} data-testid="list-item">
-          <h2 className="text-lg">{item.title}</h2>
-          <p className="text-base">{item.description}</p>
-          <p className="text-sm">
-            asked by {item.author} on{" "}
-            {new Date(item.createdAt).toLocaleDateString()}
-          </p>
-          <div>
-            {item.answers.map((elem) => (
-              <div key={elem.id}>
-                <p className="text-xs">{elem.text}</p>
-                <p className="text-xs">
-                  answered by {elem.author} on{" "}
-                  {new Date(elem.createdAt).toLocaleDateString()}
-                </p>
-              </div>
-            ))}
-            <AnswerForm questionId={item.id} submit={submitAnswer} />
+    <div className="p-2 w-3/4">
+      <div className="border p-2">
+        {enhancedList.map((item) => (
+          <div key={item.id} data-testid="list-item">
+            <h2 className="text-lg">{item.title}</h2>
+            <p className="text-base">{item.description}</p>
+            <p className="text-sm">
+              asked by {item.author} on{" "}
+              {new Date(item.createdAt).toLocaleDateString()}
+            </p>
+            <div>
+              {item.answers.map((elem) => (
+                <div key={elem.id}>
+                  <p className="text-xs">{elem.text}</p>
+                  <p className="text-xs">
+                    answered by {elem.author} on{" "}
+                    {new Date(elem.createdAt).toLocaleDateString()}
+                  </p>
+                </div>
+              ))}
+              <AnswerForm questionId={item.id} submit={submitAnswer} />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

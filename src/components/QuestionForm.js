@@ -16,35 +16,37 @@ function QuestionForm(props) {
   };
 
   return (
-    <div data-testid="question-form">
-      <div>
-        <label htmlFor="title-input">Title: </label>
-        <input
-          id="title-input"
-          data-testid="title-input"
-          ref={titleInput}
-          className="border"
-        />
+    <div data-testid="question-form" className="w-full p-2">
+      <div className="border p-2">
+        <div>
+          <label htmlFor="title-input">Title: </label>
+          <input
+            id="title-input"
+            data-testid="title-input"
+            ref={titleInput}
+            className="border"
+          />
+        </div>
+        <div>
+          <label htmlFor="description-input">Description: </label>
+          <textarea
+            id="description-input"
+            data-testid="description-input"
+            ref={descriptionInput}
+            className="border"
+            rows="4"
+            cols="50"
+          />
+        </div>
+        <button
+          data-testid="submit-button"
+          type="submit"
+          onClick={handleSubmit}
+          className="py-2 px-4 border-2 rounded-lg bg-blue-500 text-white"
+        >
+          Submit
+        </button>
       </div>
-      <div>
-        <label htmlFor="description-input">Description: </label>
-        <textarea
-          id="description-input"
-          data-testid="description-input"
-          ref={descriptionInput}
-          className="border"
-          rows="4"
-          cols="50"
-        />
-      </div>
-      <button
-        data-testid="submit-button"
-        type="submit"
-        onClick={handleSubmit}
-        className="py-2 px-4 border-2 rounded-lg bg-blue-500 text-white"
-      >
-        Submit
-      </button>
     </div>
   );
 }

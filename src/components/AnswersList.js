@@ -13,18 +13,20 @@ function AnswersList(props) {
     .slice(0, 5); // limit 5 (TODO: make request to get only ${amount} of answers)
 
   return (
-    <div>
-      <h3>Recent answers</h3>
-      {enhancedList.map((item) => (
-        <div key={item.id} data-testid="answers-list-item">
-          <p className="text-base">{item.text}</p>
-          <p className="text-sm">Answer to:{item.questionTitle}</p>
-          <p className="text-xs">
-            asked by {item.author} on{" "}
-            {new Date(item.createdAt).toLocaleDateString()}
-          </p>
-        </div>
-      ))}
+    <div className="p-2 w-1/4">
+      <div className="p-2 border">
+        <h3>Recent answers</h3>
+        {enhancedList.map((item) => (
+          <div key={item.id} data-testid="answers-list-item">
+            <p className="text-base">{item.text}</p>
+            <p className="text-sm">Answer to:{item.questionTitle}</p>
+            <p className="text-xs">
+              asked by {item.author} on{" "}
+              {new Date(item.createdAt).toLocaleDateString()}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -61,19 +61,21 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="text-center">
-        <h1 className="text-2xl">Stackoverflow clone</h1>
-      </header>
-      <main>
-        <QuestionForm submit={onSubmit} />
-        <QuestionsList
-          list={questions}
-          answers={answers}
-          submitAnswer={onSubmitAnswer}
-        />
-        <AnswersList list={answers} questions={questions} />
-      </main>
+    <div className="w-full min-h-screen bg-white">
+      <div className="m-auto min-w-min max-w-5xl text-gray-900">
+        <header className="text-center">
+          <h1 className="text-2xl">Stackoverflow clone</h1>
+        </header>
+        <main className="m-2 w-full flex flex-wrap flex-row">
+          <QuestionsList
+            list={questions}
+            answers={answers}
+            submitAnswer={onSubmitAnswer}
+          />
+          <AnswersList list={answers} questions={questions} />
+          <QuestionForm submit={onSubmit} />
+        </main>
+      </div>
     </div>
   );
 }
