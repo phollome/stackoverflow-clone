@@ -13,23 +13,24 @@ function AnswerForm(props) {
     submit({ text, author, createdAt, questionId });
   };
   return (
-    <>
-      <label htmlFor="answer-input">Answer</label>
+    <div className="py-2 flex justify-between">
       <input
         id="answer-input"
         data-testid="answer-input"
+        aria-label="answer text"
         ref={input}
-        className="border"
+        className="flex-1 border p-2 mr-2"
+        placeholder="Answer"
       />
       <button
         type="submit"
         data-testid="answer-submit-button"
-        className="py-1 px-4 border-2 rounded-lg bg-gray-500 text-white text-sm"
+        className="py-2 px-4 border-2 rounded-lg bg-gray-500 text-white text-sm"
         onClick={handleSubmit}
       >
         Submit
       </button>
-    </>
+    </div>
   );
 }
 
