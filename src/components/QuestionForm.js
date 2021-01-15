@@ -17,7 +17,7 @@ function QuestionForm(props) {
 
   return (
     <div data-testid="question-form" className="w-3/4 p-2">
-      <div className="border p-2">
+      <div className="border p-2 bg-blue-100">
         <h2 className="py-2 text-lg font-bold">Ask question</h2>
         <input
           id="title-input"

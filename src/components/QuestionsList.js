@@ -13,7 +13,7 @@ function QuestionsList(props) {
 
   return (
     <div className="p-2 w-3/4">
-      <div className="border p-2">
+      <div className="border p-2 bg-gray-100">
         {enhancedList.map((item) => (
           <div key={item.id} data-testid="list-item" className="py-2">
             <h2 className="text-lg font-bold">{item.title}</h2>
@@ -22,7 +22,7 @@ function QuestionsList(props) {
               asked by {item.author} on{" "}
               {new Date(item.createdAt).toLocaleDateString()}
             </p>
-            <div className="mt-2 p-2 border">
+            <div className="mt-2 p-2 border bg-gray-200">
               {item.answers.length > 0 ? (
                 item.answers.map((elem) => (
                   <div key={elem.id} className="border-b p-2">

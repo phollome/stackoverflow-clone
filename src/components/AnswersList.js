@@ -14,7 +14,7 @@ function AnswersList(props) {
 
   return (
     <div className="p-2 w-1/4">
-      <div className="p-2 border">
+      <div className="p-2 border bg-yellow-100">
         <h3 className="text-xl font-bold">Recent answers</h3>
         {enhancedList.map((item) => (
           <div key={item.id} data-testid="answers-list-item" className="p-2">
