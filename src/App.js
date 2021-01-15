@@ -63,8 +63,8 @@ function App() {
   return (
     <div className="w-full min-h-screen bg-white">
       <div className="m-auto min-w-min max-w-5xl text-gray-900">
-        <header className="text-center">
-          <h1 className="text-2xl">Stackoverflow clone</h1>
+        <header className="m-4 text-center">
+          <h1 className="text-2xl font-bold">Stack Overflow Clone</h1>
         </header>
         <main className="m-2 w-full flex flex-wrap flex-row">
           <QuestionsList

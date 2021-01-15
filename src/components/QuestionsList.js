@@ -13,23 +13,27 @@ function QuestionsList(props) {
     <div className="p-2 w-3/4">
       <div className="border p-2">
         {enhancedList.map((item) => (
-          <div key={item.id} data-testid="list-item">
-            <h2 className="text-lg">{item.title}</h2>
+          <div key={item.id} data-testid="list-item" className="py-2">
+            <h2 className="text-lg font-bold">{item.title}</h2>
             <p className="text-base">{item.description}</p>
-            <p className="text-sm">
+            <p className="text-sm italic text-right">
               asked by {item.author} on{" "}
               {new Date(item.createdAt).toLocaleDateString()}
             </p>
-            <div>
-              {item.answers.map((elem) => (
-                <div key={elem.id}>
-                  <p className="text-xs">{elem.text}</p>
-                  <p className="text-xs">
-                    answered by {elem.author} on{" "}
-                    {new Date(elem.createdAt).toLocaleDateString()}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-2 p-2 border">
+              {item.answers.length > 0 ? (
+                item.answers.map((elem) => (
+                  <div key={elem.id} className="border-b p-2">
+                    <p className="text-xs">{elem.text}</p>
+                    <p className="text-xs italic">
+                      answered by {elem.author} on{" "}
+                      {new Date(elem.createdAt).toLocaleDateString()}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-xs italic">No answers</p>
+              )}
               <AnswerForm questionId={item.id} submit={submitAnswer} />
             </div>
           </div>

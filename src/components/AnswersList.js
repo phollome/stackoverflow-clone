@@ -15,12 +15,14 @@ function AnswersList(props) {
   return (
     <div className="p-2 w-1/4">
       <div className="p-2 border">
-        <h3>Recent answers</h3>
+        <h3 className="text-xl font-bold">Recent answers</h3>
         {enhancedList.map((item) => (
-          <div key={item.id} data-testid="answers-list-item">
+          <div key={item.id} data-testid="answers-list-item" className="p-2">
             <p className="text-base">{item.text}</p>
-            <p className="text-sm">Answer to:{item.questionTitle}</p>
-            <p className="text-xs">
+            <p className="text-sm">
+              Answer to: <span className="font-bold">{item.questionTitle}</span>
+            </p>
+            <p className="text-xs italic">
               asked by {item.author} on{" "}
               {new Date(item.createdAt).toLocaleDateString()}
             </p>
