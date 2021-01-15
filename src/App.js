@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AnswersList from "./components/AnswersList";
 import QuestionForm from "./components/QuestionForm";
 import QuestionsList from "./components/QuestionsList";
 
@@ -71,6 +72,7 @@ function App() {
           answers={answers}
           submitAnswer={onSubmitAnswer}
         />
+        <AnswersList list={answers} questions={questions} />
       </main>
     </div>
   );
