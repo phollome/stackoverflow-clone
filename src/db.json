@@ -4,8 +4,17 @@
       "id": 1,
       "title": "The Question!",
       "description": "The answer to the ultimate question of life, the universe and everything",
-      "createdAt": "Fri Jan 15 2021 10:12:19 GMT+0100",
+      "createdAt": "Fri, 15 Jan 2021 10:12:19 GMT",
       "author": "peter"
+    }
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "text": "42!",
+      "createdAt": "Fri, 15 Jan 2021 10:12:19 GMT",
+      "author": "sookie",
+      "questionId": 1
     }
   ]
 }

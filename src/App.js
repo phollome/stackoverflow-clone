@@ -4,12 +4,22 @@ import QuestionsList from "./components/QuestionsList";
 
 function App() {
   const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
     async function makeRequest() {
       const res = await fetch("http://localhost:3001/questions");
       const json = await res.json();
       setQuestions(json);
+    }
+    makeRequest();
+  }, []);
+
+  useEffect(() => {
+    async function makeRequest() {
+      const res = await fetch("http://localhost:3001/answers");
+      const json = await res.json();
+      setAnswers(json);
     }
     makeRequest();
   }, []);
@@ -32,7 +42,7 @@ function App() {
       </header>
       <main>
         <QuestionForm submit={onSubmit} />
-        <QuestionsList list={questions} />
+        <QuestionsList list={questions} answers={answers} />
       </main>
     </div>
   );
